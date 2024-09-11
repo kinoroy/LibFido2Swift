@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3356EC882C90CC090037DC0B /* libfido2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3356EC872C90CC010037DC0B /* libfido2.a */; };
+		3356EC8A2C90CC2D0037DC0B /* libfido2.1.15.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3356EC892C90CC2D0037DC0B /* libfido2.1.15.0.dylib */; };
+		3356EC8B2C90CC2D0037DC0B /* libfido2.1.15.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3356EC892C90CC2D0037DC0B /* libfido2.1.15.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3356EC8E2C90CC650037DC0B /* libcbor.0.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3356EC8D2C90CC650037DC0B /* libcbor.0.11.0.dylib */; };
+		3356EC8F2C90CC650037DC0B /* libcbor.0.11.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3356EC8D2C90CC650037DC0B /* libcbor.0.11.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3356EC912C90CC990037DC0B /* libcrypto.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3356EC902C90CC990037DC0B /* libcrypto.3.dylib */; };
+		3356EC922C90CC990037DC0B /* libcrypto.3.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 3356EC902C90CC990037DC0B /* libcrypto.3.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3356EC952C90F4A00037DC0B /* SwiftCBOR in Frameworks */ = {isa = PBXBuildFile; productRef = 3356EC942C90F4A00037DC0B /* SwiftCBOR */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3356EC712C90C0C20037DC0B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		3356EC8C2C90CC2D0037DC0B /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3356EC8B2C90CC2D0037DC0B /* libfido2.1.15.0.dylib in Embed Libraries */,
+				3356EC922C90CC990037DC0B /* libcrypto.3.dylib in Embed Libraries */,
+				3356EC8F2C90CC650037DC0B /* libcbor.0.11.0.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3356EC732C90C0C20037DC0B /* Fido2Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Fido2Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		3356EC872C90CC010037DC0B /* libfido2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfido2.a; path = ../../../../opt/homebrew/Cellar/libfido2/1.15.0/lib/libfido2.a; sourceTree = "<group>"; };
+		3356EC892C90CC2D0037DC0B /* libfido2.1.15.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfido2.1.15.0.dylib; path = ../../../../opt/homebrew/Cellar/libfido2/1.15.0/lib/libfido2.1.15.0.dylib; sourceTree = "<group>"; };
+		3356EC8D2C90CC650037DC0B /* libcbor.0.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcbor.0.11.0.dylib; path = ../../../../opt/homebrew/Cellar/libcbor/0.11.0/lib/libcbor.0.11.0.dylib; sourceTree = "<group>"; };
+		3356EC902C90CC990037DC0B /* libcrypto.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.3.dylib; path = "../../../../opt/homebrew/Cellar/openssl@3/3.3.2/lib/libcrypto.3.dylib"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3356EC752C90C0C20037DC0B /* Fido2Test */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Fido2Test;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3356EC702C90C0C20037DC0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3356EC912C90CC990037DC0B /* libcrypto.3.dylib in Frameworks */,
+				3356EC882C90CC090037DC0B /* libfido2.a in Frameworks */,
+				3356EC952C90F4A00037DC0B /* SwiftCBOR in Frameworks */,
+				3356EC8A2C90CC2D0037DC0B /* libfido2.1.15.0.dylib in Frameworks */,
+				3356EC8E2C90CC650037DC0B /* libcbor.0.11.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3356EC6A2C90C0C20037DC0B = {
+			isa = PBXGroup;
+			children = (
+				3356EC752C90C0C20037DC0B /* Fido2Test */,
+				3356EC7E2C90C30A0037DC0B /* Frameworks */,
+				3356EC742C90C0C20037DC0B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3356EC742C90C0C20037DC0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3356EC732C90C0C20037DC0B /* Fido2Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3356EC7E2C90C30A0037DC0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3356EC902C90CC990037DC0B /* libcrypto.3.dylib */,
+				3356EC8D2C90CC650037DC0B /* libcbor.0.11.0.dylib */,
+				3356EC892C90CC2D0037DC0B /* libfido2.1.15.0.dylib */,
+				3356EC872C90CC010037DC0B /* libfido2.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3356EC722C90C0C20037DC0B /* Fido2Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3356EC7A2C90C0C20037DC0B /* Build configuration list for PBXNativeTarget "Fido2Test" */;
+			buildPhases = (
+				3356EC6F2C90C0C20037DC0B /* Sources */,
+				3356EC702C90C0C20037DC0B /* Frameworks */,
+				3356EC712C90C0C20037DC0B /* CopyFiles */,
+				3356EC8C2C90CC2D0037DC0B /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3356EC752C90C0C20037DC0B /* Fido2Test */,
+			);
+			name = Fido2Test;
+			packageProductDependencies = (
+				3356EC942C90F4A00037DC0B /* SwiftCBOR */,
+			);
+			productName = Fido2Test;
+			productReference = 3356EC732C90C0C20037DC0B /* Fido2Test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3356EC6B2C90C0C20037DC0B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					3356EC722C90C0C20037DC0B = {
+						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
+					};
+				};
+			};
+			buildConfigurationList = 3356EC6E2C90C0C20037DC0B /* Build configuration list for PBXProject "Fido2Test" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3356EC6A2C90C0C20037DC0B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3356EC932C90F4A00037DC0B /* XCRemoteSwiftPackageReference "SwiftCBOR" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3356EC742C90C0C20037DC0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3356EC722C90C0C20037DC0B /* Fido2Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3356EC6F2C90C0C20037DC0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3356EC782C90C0C20037DC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3356EC792C90C0C20037DC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		3356EC7B2C90C0C20037DC0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YL427HHUZP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					"/opt/homebrew/opt/openssl@3/include",
+					/opt/homebrew/opt/libfido2/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/opt/homebrew/opt/openssl@3/lib",
+					/opt/homebrew/opt/libfido2/lib,
+					/opt/homebrew/Cellar/libfido2/1.15.0/lib,
+					/opt/homebrew/Cellar/libcbor/0.11.0/lib,
+					"/opt/homebrew/Cellar/openssl@3/3.3.2/lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fido2Test/Fido2Test-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3356EC7C2C90C0C20037DC0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YL427HHUZP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					"/opt/homebrew/opt/openssl@3/include",
+					/opt/homebrew/opt/libfido2/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/opt/homebrew/opt/openssl@3/lib",
+					/opt/homebrew/opt/libfido2/lib,
+					/opt/homebrew/Cellar/libfido2/1.15.0/lib,
+					/opt/homebrew/Cellar/libcbor/0.11.0/lib,
+					"/opt/homebrew/Cellar/openssl@3/3.3.2/lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fido2Test/Fido2Test-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3356EC6E2C90C0C20037DC0B /* Build configuration list for PBXProject "Fido2Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3356EC782C90C0C20037DC0B /* Debug */,
+				3356EC792C90C0C20037DC0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3356EC7A2C90C0C20037DC0B /* Build configuration list for PBXNativeTarget "Fido2Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3356EC7B2C90C0C20037DC0B /* Debug */,
+				3356EC7C2C90C0C20037DC0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3356EC932C90F4A00037DC0B /* XCRemoteSwiftPackageReference "SwiftCBOR" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/valpackett/SwiftCBOR.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3356EC942C90F4A00037DC0B /* SwiftCBOR */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3356EC932C90F4A00037DC0B /* XCRemoteSwiftPackageReference "SwiftCBOR" */;
+			productName = SwiftCBOR;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3356EC6B2C90C0C20037DC0B /* Project object */;
+}
