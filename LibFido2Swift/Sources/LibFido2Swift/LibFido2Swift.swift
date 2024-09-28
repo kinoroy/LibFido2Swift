@@ -66,6 +66,12 @@ public class FIDO2 {
     
     public init() {}
     
+    /// Responds to the given WebAuthn challenge
+    /// Note that this is a **blocking** method if the challenge requires user verification (don't call it on the main thread!)
+    /// (The method blocks waiting for the user to touch the security device)
+    /// You can call this from a Task or background thread and use the `cancel()` method from the main or other thread to cancel the pending user verification
+    /// - Parameter args: The required input arguments to form an assertation
+    /// - Returns: The output which can form an assertion 
     public func respondToChallenge(args: ChallengeArgs) throws -> ChallengeResponse {
         var fa = fido_assert_new()
         defer { fido_assert_free(&fa) }
