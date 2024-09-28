@@ -1,0 +1,7 @@
+framework module libfido2 {
+  umbrella header "fido.h"
+  header "fido/credman.h"
+  
+  export *
+  module * { export * }
+}
