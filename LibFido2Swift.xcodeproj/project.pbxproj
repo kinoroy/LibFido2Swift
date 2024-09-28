@@ -8,24 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		334A93252CA86ADA00A5E079 /* LibFido2Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 334A93242CA86ADA00A5E079 /* LibFido2Swift */; };
-		33768ECA2CA891D200BB20F7 /* LibFido2Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 33768EC92CA891D200BB20F7 /* LibFido2Swift */; };
-		33768ECC2CA8923E00BB20F7 /* Testing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33768ECB2CA8923E00BB20F7 /* Testing.framework */; };
-		33768ECD2CA8923E00BB20F7 /* Testing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33768ECB2CA8923E00BB20F7 /* Testing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		33768ECE2CA8923E00BB20F7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				33768ECD2CA8923E00BB20F7 /* Testing.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		332807552CA7AEC10036F691 /* LibCbor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LibCbor.xcframework; path = Frameworks/LibCbor.xcframework; sourceTree = "<group>"; };
@@ -35,7 +18,6 @@
 		332807702CA7BB800036F691 /* LibFido2TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibFido2TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		332807A22CA7BB930036F691 /* libfido2.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libfido2.xcframework; path = Frameworks/libfido2.xcframework; sourceTree = "<group>"; };
 		332807BA2CA7C2F90036F691 /* libfido2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libfido2.framework; path = Frameworks/libfido2.framework; sourceTree = "<group>"; };
-		33768ECB2CA8923E00BB20F7 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,8 +34,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				334A93252CA86ADA00A5E079 /* LibFido2Swift in Frameworks */,
-				33768ECC2CA8923E00BB20F7 /* Testing.framework in Frameworks */,
-				33768ECA2CA891D200BB20F7 /* LibFido2Swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +43,6 @@
 		332807542CA7AEC10036F691 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				33768ECB2CA8923E00BB20F7 /* Testing.framework */,
 				332807BA2CA7C2F90036F691 /* libfido2.framework */,
 				332807A22CA7BB930036F691 /* libfido2.xcframework */,
 				332807552CA7AEC10036F691 /* LibCbor.xcframework */,
@@ -101,7 +80,6 @@
 				3328076C2CA7BB800036F691 /* Sources */,
 				3328076D2CA7BB800036F691 /* Frameworks */,
 				3328076E2CA7BB800036F691 /* Resources */,
-				33768ECE2CA8923E00BB20F7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

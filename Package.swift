@@ -20,10 +20,6 @@ let package = Package(
             dependencies: ["LibCrypto", "libfido2", "LibCbor"],
             path: "LibFido2Swift"
         ),
-        .testTarget(
-            name: "LibFido2SwiftTests",
-            dependencies: ["LibFido2Swift"]
-        ),
         .binaryTarget(name: "LibCbor", path: "./Frameworks/LibCbor.xcframework"),
         .binaryTarget(name: "LibCrypto", path: "./Frameworks/LibCrypto.xcframework"),
         .binaryTarget(name: "libfido2", path: "./Frameworks/libfido2.xcframework"),
