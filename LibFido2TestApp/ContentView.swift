@@ -9,6 +9,7 @@ import SwiftUI
 import LibFido2Swift
 
 struct ContentView: View {
+    let fido2 = FIDO2()
     @AppStorage("challengeUrl") var challengeUrl = ""
     @AppStorage("rpId") var rpId = ""
     @AppStorage("validCreds") var validCreds = ""
@@ -23,12 +24,17 @@ struct ContentView: View {
                 TextField("Valid Credentials (comma separated)", text: $validCreds)
                 TextField("Origin", text: $origin)
                 TextField("Device Pin", text: $devicePin)
-                Button("FIDO") {
-                    do {
-                        try fido()
-                    } catch {
-                        print(error)
+                Button("Get Assertion") {
+                    DispatchQueue.global().async {
+                        do {
+                            try fido()
+                        } catch {
+                            print(error)
+                        }
                     }
+                }
+                Button("Cancel") {
+                    fido2.cancel()
                 }
             }
             VStack {
@@ -44,7 +50,6 @@ struct ContentView: View {
     }
     
     func fido() throws {
-        let fido2 = FIDO2()
         let validCredsArray = validCreds.split(separator: ",").map { String($0) }
         let response = try fido2.respondToChallenge(args: ChallengeArgs(rpId: rpId,
                                                                         validCredentials: validCredsArray,
