@@ -1,6 +1,15 @@
 framework module libfido2 {
   umbrella header "fido.h"
   header "fido/credman.h"
+  exclude header "fido/bio.h"
+  exclude header "fido/config.h"
+  exclude header "fido/eddsa.h"
+  exclude header "fido/err.h"
+  exclude header "fido/es256.h"
+  exclude header "fido/es384.h"
+  exclude header "fido/param.h"
+  exclude header "fido/rs256.h"
+  exclude header "fido/types.h"
   
   export *
   module * { export * }
