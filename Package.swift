@@ -20,9 +20,9 @@ let package = Package(
             dependencies: ["libCrypto", "libfido2", "libCbor"],
             path: "LibFido2Swift",
             linkerSettings: [
-                .linkedLibrary("libCbor"),
-                .linkedLibrary("libCrypto"),
-                .linkedLibrary("libfido2"),
+                .linkedFramework("libCbor"),
+                .linkedFramework("libCrypto"),
+                .linkedFramework("libfido2"),
             ]
         ),
         .binaryTarget(name: "libCbor", path: "./Frameworks/libCbor.xcframework"),
