@@ -17,16 +17,16 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "LibFido2Swift",
-            dependencies: ["LibCrypto", "libfido2", "LibCbor"],
+            dependencies: ["libCrypto", "libfido2", "libCbor"],
             path: "LibFido2Swift",
             linkerSettings: [
-                .linkedLibrary("LibCbor"),
-                .linkedLibrary("LibCrypto"),
+                .linkedLibrary("libCbor"),
+                .linkedLibrary("libCrypto"),
                 .linkedLibrary("libfido2"),
             ]
         ),
-        .binaryTarget(name: "LibCbor", path: "./Frameworks/LibCbor.xcframework"),
-        .binaryTarget(name: "LibCrypto", path: "./Frameworks/LibCrypto.xcframework"),
+        .binaryTarget(name: "libCbor", path: "./Frameworks/libCbor.xcframework"),
+        .binaryTarget(name: "libCrypto", path: "./Frameworks/libCrypto.xcframework"),
         .binaryTarget(name: "libfido2", path: "./Frameworks/libfido2.xcframework"),
     ]
 )
