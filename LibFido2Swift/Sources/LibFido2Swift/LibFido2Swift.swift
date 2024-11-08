@@ -16,11 +16,11 @@ public struct ChallengeResponse: Encodable {
 public struct ChallengeArgs {
     public let rpId: String
     public let validCredentials: [String]
-    public let devPin: String
+    public let devPin: String?
     public let challenge: String
     public let origin: String
     
-    public init(rpId: String, validCredentials: [String], devPin: String, challenge: String, origin: String) {
+    public init(rpId: String, validCredentials: [String], devPin: String?, challenge: String, origin: String) {
         self.rpId = rpId
         self.validCredentials = validCredentials
         self.devPin = devPin
@@ -66,6 +66,21 @@ public class FIDO2 {
     
     public init() {}
     
+    public func deviceHasPin() throws -> Bool {
+        let devPath = try findFirstDevicePath()
+        
+        var dev = fido_dev_new()
+        defer { fido_dev_free(&dev) }
+        
+        let openResult = fido_dev_open(dev, devPath)
+        guard openResult == FIDO_OK else {
+            throw FIDO2Error.internalError
+        }
+        defer { fido_dev_close(dev) }
+        
+        return fido_dev_has_pin(dev)
+    }
+    
     /// Responds to the given WebAuthn challenge
     /// Note that this is a **blocking** method if the challenge requires user verification (don't call it on the main thread!)
     /// (The method blocks waiting for the user to touch the security device)
@@ -107,14 +122,10 @@ public class FIDO2 {
             throw FIDO2Error.notFido2Device
         }
 
-        guard let matchingCredId = try getMatchingCredId(from: dev, validCredentials: validCredentials, rpId: rpId, devPin: devPin) else {
-            // The device has no valid credentials, we cannot continue
-            throw FIDO2Error.errorNoValidCredentials
-        }
-
         try makeAssertion(using: dev, fidoAssertion: fa, devicePin: devPin)
 
         let authDataBase64Str = try getAuthData(fidoAssertion: fa)
+        let credentialId = try getCredentialIdUsed(fidoAssertion: fa)
         let signatureDataBase64Str = try getSignatureData(fidoAssertion: fa)
         let userHandleBase64Str = try getUserData(fidoAssertion: fa)
 
@@ -124,7 +135,7 @@ public class FIDO2 {
                                          signatureData: signatureDataBase64Str,
                                          authenticatorData: authDataBase64Str,
                                          userHandle: userHandleBase64Str,
-                                         credentialID: matchingCredId,
+                                         credentialID: credentialId,
                                          rpId: rpId)
         return response
     }
@@ -169,34 +180,7 @@ public class FIDO2 {
         return String(cString: devPath)
     }
     
-    private func getMatchingCredId(from dev: OpaquePointer?, validCredentials: [String], rpId: String, devPin: String) throws -> String? {
-        var rk = fido_credman_rk_new() // Resident credentials array
-        defer { fido_credman_rk_free(&rk) }
-        
-        let get_dev_array_result = fido_credman_get_dev_rk(dev, rpId, rk, devPin)
-        guard get_dev_array_result == FIDO_OK else {
-            throw FIDO2Error.libfido2ErrorInternal(get_dev_array_result)
-        }
-        
-        let rkCount = fido_credman_rk_count(rk)
-        for i in 0..<rkCount {
-            let cred = fido_credman_rk(rk, i)
-            guard let idPtr = fido_cred_id_ptr(cred) else {
-                throw FIDO2Error.internalError
-            }
-            let idLen = fido_cred_id_len(cred)
-            let idData = Data(bytes: idPtr, count: idLen)
-            let idBase64 = idData.base64EncodedString()
-            if validCredentials.contains(idBase64) {
-                // Return the first found, valid credential
-                return idBase64
-            }
-        }
-        
-        return nil
-    }
-    
-    private func makeAssertion(using device: OpaquePointer?, fidoAssertion: OpaquePointer?, devicePin: String) throws {
+    private func makeAssertion(using device: OpaquePointer?, fidoAssertion: OpaquePointer?, devicePin: String?) throws {
         let assertResult = fido_dev_get_assert(device, fidoAssertion, devicePin)
         guard assertResult == FIDO_OK else {
             if assertResult == FIDO_ERR_ACTION_TIMEOUT {
@@ -218,6 +202,16 @@ public class FIDO2 {
         let authData = Data(bytes: authDataPtr, count: 37)
         let authDataBase64Str = authData.base64EncodedString()
         return authDataBase64Str
+    }
+    
+    private func getCredentialIdUsed(fidoAssertion fa: OpaquePointer?) throws -> String {
+        guard let credentialIdPtr = fido_assert_id_ptr(fa, 0) else {
+            throw FIDO2Error.internalError
+        }
+        let credIdLen = fido_assert_id_len(fa, 0)
+        let credIdData = Data(bytes: credentialIdPtr, count: credIdLen)
+        let credIdBase64Str = credIdData.base64EncodedString()
+        return credIdBase64Str
     }
     
     private func getSignatureData(fidoAssertion fa: OpaquePointer?) throws -> String {
