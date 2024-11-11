@@ -16,6 +16,8 @@ struct ContentView: View {
     @AppStorage("origin") var origin = ""
     @AppStorage("devicePin") var devicePin = ""
     @State var responseJson = ""
+    @State private var isDevicePresent = false
+    @State private var isDevicePresentAlertShown = false
     var body: some View {
         VStack {
             VStack {
@@ -32,6 +34,17 @@ struct ContentView: View {
                             print(error)
                         }
                     }
+                }
+                Button("Is Device Present?") {
+                    isDevicePresent = fido2.hasDeviceAttached()
+                    isDevicePresentAlertShown = true
+                }
+                .alert(isPresented: $isDevicePresentAlertShown) {
+                    Alert(
+                        title: Text("Device is \(isDevicePresent ? "present" : "not present")"),
+                        message: nil,
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
                 Button("Cancel") {
                     fido2.cancel()
