@@ -66,6 +66,15 @@ public class FIDO2 {
     
     public init() {}
     
+    public func hasDeviceAttached() -> Bool {
+        do {
+            let _ = try findFirstDevicePath()
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     public func deviceHasPin() throws -> Bool {
         let devPath = try findFirstDevicePath()
         
