@@ -18,10 +18,15 @@ let package = Package(
         .target(
             name: "LibFido2Swift",
             dependencies: ["LibCrypto", "libfido2", "LibCbor"],
-            path: "LibFido2Swift"
+            path: "LibFido2Swift",
+            linkerSettings: [
+                .linkedFramework("LibCbor"),
+                .linkedFramework("LibCrypto"),
+                .linkedFramework("libfido2"),
+            ]
         ),
-        .binaryTarget(name: "LibCbor", path: "./Frameworks/LibCbor.xcframework"),
-        .binaryTarget(name: "LibCrypto", path: "./Frameworks/LibCrypto.xcframework"),
+        .binaryTarget(name: "LibCbor", path: "./Frameworks/libCbor.xcframework"),
+        .binaryTarget(name: "LibCrypto", path: "./Frameworks/libCrypto.xcframework"),
         .binaryTarget(name: "libfido2", path: "./Frameworks/libfido2.xcframework"),
     ]
 )
