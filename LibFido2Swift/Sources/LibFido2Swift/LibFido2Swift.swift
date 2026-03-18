@@ -9,7 +9,7 @@ public struct ChallengeResponse: Encodable {
     public let clientData: String
     public let signatureData: String
     public let authenticatorData: String
-    public let userHandle: String
+    public let userHandle: String?
     public let credentialID: String
     public let rpId: String
 }
@@ -233,9 +233,9 @@ public class FIDO2 {
         return signatureDataBase64Str
     }
 
-    private func getUserData(fidoAssertion fa: OpaquePointer?) throws -> String {
+    private func getUserData(fidoAssertion fa: OpaquePointer?) throws -> String? {
         guard let userHandlePtr = fido_assert_user_id_ptr(fa, 0) else {
-            throw FIDO2Error.internalError
+            return nil
         }
         let userHandleLen = fido_assert_user_id_len(fa, 0)
         let userHandleData = Data(bytes: userHandlePtr, count: userHandleLen)
