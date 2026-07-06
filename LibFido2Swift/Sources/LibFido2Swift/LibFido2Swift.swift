@@ -234,13 +234,21 @@ public class FIDO2 {
     }
 
     private func getUserData(fidoAssertion fa: OpaquePointer?) throws -> String {
+        // The WebAuthn `userHandle` is OPTIONAL. When authenticating with an allow-list
+        // (non-resident / server-side) credential — as Apple's Apple ID sign-in does — a
+        // CTAP2 authenticator is not required to return a user handle. Its absence is not
+        // an error, so we represent it as an empty string instead of failing an
+        // otherwise-valid assertion.
         guard let userHandlePtr = fido_assert_user_id_ptr(fa, 0) else {
-            throw FIDO2Error.internalError
+            return ""
         }
         let userHandleLen = fido_assert_user_id_len(fa, 0)
+        guard userHandleLen > 0 else {
+            return ""
+        }
         let userHandleData = Data(bytes: userHandlePtr, count: userHandleLen)
         guard let userHandleBase64Str = String(data: userHandleData, encoding: .utf8) else {
-            throw FIDO2Error.internalError
+            return ""
         }
         return userHandleBase64Str
     }
